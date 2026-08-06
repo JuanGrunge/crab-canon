@@ -1112,16 +1112,29 @@
     canvasEl.style.transform = side < 0 ? 'scaleX(-1)' : 'none';
   }
 
-  let lastWidth = moebiusApp.clientWidth;
-  let lastHeight = moebiusApp.clientHeight;
+  let lastMoebiusW = moebiusApp.clientWidth;
+  let lastMoebiusH = moebiusApp.clientHeight;
+  let lastChase1W = chaseVoice1Container.clientWidth;
+  let lastChase1H = chaseVoice1Container.clientHeight;
+  let lastChase2W = chaseVoice2Container.clientWidth;
+  let lastChase2H = chaseVoice2Container.clientHeight;
 
   function animate() {
     requestAnimationFrame(animate);
-    if (moebiusApp.clientWidth !== lastWidth || moebiusApp.clientHeight !== lastHeight) {
-      lastWidth = moebiusApp.clientWidth;
-      lastHeight = moebiusApp.clientHeight;
+
+    if (moebiusApp.clientWidth !== lastMoebiusW || moebiusApp.clientHeight !== lastMoebiusH) {
+      lastMoebiusW = moebiusApp.clientWidth;
+      lastMoebiusH = moebiusApp.clientHeight;
       fitCameraToViewport();
+    }
+    if (chaseVoice1Container.clientWidth !== lastChase1W || chaseVoice1Container.clientHeight !== lastChase1H) {
+      lastChase1W = chaseVoice1Container.clientWidth;
+      lastChase1H = chaseVoice1Container.clientHeight;
       chase1Pipeline.resize();
+    }
+    if (chaseVoice2Container.clientWidth !== lastChase2W || chaseVoice2Container.clientHeight !== lastChase2H) {
+      lastChase2W = chaseVoice2Container.clientWidth;
+      lastChase2H = chaseVoice2Container.clientHeight;
       chase2Pipeline.resize();
     }
     if (autoRotating) {
