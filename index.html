@@ -943,6 +943,7 @@
   finalComposer.addPass(new OutputPass());
 
   function fitCameraToViewport() {
+    if (moebiusApp.clientWidth === 0 || moebiusApp.clientHeight === 0) return;
     camera.aspect = moebiusApp.clientWidth / moebiusApp.clientHeight;
     const vFovRad = (camera.fov * Math.PI) / 180;
     const hFovRad = 2 * Math.atan(Math.tan(vFovRad / 2) * camera.aspect);
@@ -1079,6 +1080,7 @@
     chaseFinalComposer.addPass(new OutputPass());
 
     function resize() {
+      if (container.clientWidth === 0 || container.clientHeight === 0) return;
       chaseCamera.aspect = container.clientWidth / container.clientHeight;
       chaseCamera.updateProjectionMatrix();
       chaseRenderer.setSize(container.clientWidth, container.clientHeight);
@@ -1099,11 +1101,14 @@
   const chase1Pipeline = createChaseRenderPipeline(chaseVoice1Container, chase1.camera);
   const chase2Pipeline = createChaseRenderPipeline(chaseVoice2Container, chase2.camera);
 
-  window.addEventListener('resize', () => {
-    fitCameraToViewport();
-    chase1Pipeline.resize();
-    chase2Pipeline.resize();
-  });
+  const moebiusResizeObserver = new ResizeObserver(() => fitCameraToViewport());
+  moebiusResizeObserver.observe(moebiusApp);
+
+  const chase1ResizeObserver = new ResizeObserver(() => chase1Pipeline.resize());
+  chase1ResizeObserver.observe(chaseVoice1Container);
+
+  const chase2ResizeObserver = new ResizeObserver(() => chase2Pipeline.resize());
+  chase2ResizeObserver.observe(chaseVoice2Container);
 
   const chase1Canvas = chaseVoice1Container.querySelector('canvas');
   const chase2Canvas = chaseVoice2Container.querySelector('canvas');
@@ -1112,31 +1117,8 @@
     canvasEl.style.transform = side < 0 ? 'scaleX(-1)' : 'none';
   }
 
-  let lastMoebiusW = moebiusApp.clientWidth;
-  let lastMoebiusH = moebiusApp.clientHeight;
-  let lastChase1W = chaseVoice1Container.clientWidth;
-  let lastChase1H = chaseVoice1Container.clientHeight;
-  let lastChase2W = chaseVoice2Container.clientWidth;
-  let lastChase2H = chaseVoice2Container.clientHeight;
-
   function animate() {
     requestAnimationFrame(animate);
-
-    if (moebiusApp.clientWidth !== lastMoebiusW || moebiusApp.clientHeight !== lastMoebiusH) {
-      lastMoebiusW = moebiusApp.clientWidth;
-      lastMoebiusH = moebiusApp.clientHeight;
-      fitCameraToViewport();
-    }
-    if (chaseVoice1Container.clientWidth !== lastChase1W || chaseVoice1Container.clientHeight !== lastChase1H) {
-      lastChase1W = chaseVoice1Container.clientWidth;
-      lastChase1H = chaseVoice1Container.clientHeight;
-      chase1Pipeline.resize();
-    }
-    if (chaseVoice2Container.clientWidth !== lastChase2W || chaseVoice2Container.clientHeight !== lastChase2H) {
-      lastChase2W = chaseVoice2Container.clientWidth;
-      lastChase2H = chaseVoice2Container.clientHeight;
-      chase2Pipeline.resize();
-    }
     if (autoRotating) {
       const offset = camera.position.clone().sub(controls.target);
       offset.applyAxisAngle(new THREE.Vector3(0, 1, 0), AUTO_ROTATE_SPEED);
