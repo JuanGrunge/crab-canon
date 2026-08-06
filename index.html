@@ -1109,8 +1109,18 @@
     canvasEl.style.transform = side < 0 ? 'scaleX(-1)' : 'none';
   }
 
+  let lastWidth = moebiusApp.clientWidth;
+  let lastHeight = moebiusApp.clientHeight;
+
   function animate() {
     requestAnimationFrame(animate);
+    if (moebiusApp.clientWidth !== lastWidth || moebiusApp.clientHeight !== lastHeight) {
+      lastWidth = moebiusApp.clientWidth;
+      lastHeight = moebiusApp.clientHeight;
+      fitCameraToViewport();
+      chase1Pipeline.resize();
+      chase2Pipeline.resize();
+    }
     if (autoRotating) {
       const offset = camera.position.clone().sub(controls.target);
       offset.applyAxisAngle(new THREE.Vector3(0, 1, 0), AUTO_ROTATE_SPEED);
