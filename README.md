@@ -4,7 +4,7 @@ Visualizador web del Canon Cangrejo de J. S. Bach (Ofrenda Musical, BWV 1079),
 en tres vistas sincronizadas: cinta plana con notación viva, banda de Möbius
 en 3D y Cilindro Palíndromo.
 
-**Ver en vivo:** https://JuanGrunge.github.io/crab-canon/
+**Ver en vivo:** https://juangrunge.github.io/crab-canon/
 
 ## Qué muestra
 
