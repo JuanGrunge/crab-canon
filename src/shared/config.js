@@ -1,5 +1,5 @@
 // Fuente de datos
-export const DATA_URL = '/data/voice-data.json';
+export const DATA_URL = './data/voice-data.json';
 
 // Tempo
 export const BPM = 120;
