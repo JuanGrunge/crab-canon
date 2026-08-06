@@ -1079,11 +1079,7 @@
     chaseFinalComposer.addPass(chaseMixPass);
     chaseFinalComposer.addPass(new OutputPass());
 
-    function resize() {
-      if (container.clientWidth === 0 || container.clientHeight === 0) return;
-      chaseCamera.aspect = container.clientWidth / container.clientHeight;
-      chaseCamera.updateProjectionMatrix();
-      chaseRenderer.setSize(container.clientWidth, container.clientHeight);
+    function resizeComposers() {
       chaseBloomComposer.setSize(container.clientWidth, container.clientHeight);
       chaseFinalComposer.setSize(container.clientWidth, container.clientHeight);
     }
@@ -1095,20 +1091,26 @@
       chaseFinalComposer.render();
     }
 
-    return { resize, render };
+    return { renderer: chaseRenderer, resizeComposers, render };
   }
 
   const chase1Pipeline = createChaseRenderPipeline(chaseVoice1Container, chase1.camera);
   const chase2Pipeline = createChaseRenderPipeline(chaseVoice2Container, chase2.camera);
 
-  const moebiusResizeObserver = new ResizeObserver(() => fitCameraToViewport());
-  moebiusResizeObserver.observe(moebiusApp);
-
-  const chase1ResizeObserver = new ResizeObserver(() => chase1Pipeline.resize());
-  chase1ResizeObserver.observe(chaseVoice1Container);
-
-  const chase2ResizeObserver = new ResizeObserver(() => chase2Pipeline.resize());
-  chase2ResizeObserver.observe(chaseVoice2Container);
+  // Corrección de tamaño de render, patrón canónico Three.js
+  function resizeRendererToDisplaySize(targetRenderer, targetCamera, container) {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    if (width === 0 || height === 0) return false;
+    const needsResize = targetRenderer.domElement.width !== width * window.devicePixelRatio
+      || targetRenderer.domElement.height !== height * window.devicePixelRatio;
+    if (needsResize) {
+      targetRenderer.setSize(width, height, true);
+      targetCamera.aspect = width / height;
+      targetCamera.updateProjectionMatrix();
+    }
+    return needsResize;
+  }
 
   const chase1Canvas = chaseVoice1Container.querySelector('canvas');
   const chase2Canvas = chaseVoice2Container.querySelector('canvas');
@@ -1119,6 +1121,16 @@
 
   function animate() {
     requestAnimationFrame(animate);
+
+    const moebiusResized = resizeRendererToDisplaySize(renderer, camera, moebiusApp);
+    if (moebiusResized) fitCameraToViewport();
+
+    const chase1Resized = resizeRendererToDisplaySize(chase1Pipeline.renderer, chase1.camera, chaseVoice1Container);
+    if (chase1Resized) chase1Pipeline.resizeComposers();
+
+    const chase2Resized = resizeRendererToDisplaySize(chase2Pipeline.renderer, chase2.camera, chaseVoice2Container);
+    if (chase2Resized) chase2Pipeline.resizeComposers();
+
     if (autoRotating) {
       const offset = camera.position.clone().sub(controls.target);
       offset.applyAxisAngle(new THREE.Vector3(0, 1, 0), AUTO_ROTATE_SPEED);
