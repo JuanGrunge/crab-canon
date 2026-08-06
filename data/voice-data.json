@@ -1,0 +1,1262 @@
+{
+  "meta": {
+    "title": "Crab Canon, BWV 1079",
+    "source": "The Musical Offering, J.S. Bach",
+    "measures": 18,
+    "time_signature": "4/4",
+    "ticks_per_beat": 96,
+    "total_ticks": 6912,
+    "note": "Datos extraidos y verificados manualmente desde MIDI. Voz 2 corregida: 3 notas fusionadas que estaban partidas por artefacto de exportacion (compases 13,14,15).",
+    "key_signature": "Eb"
+  },
+  "voice_1": [
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 0,
+      "tick_end": 192,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 192,
+      "tick_end": 384,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 384,
+      "tick_end": 576,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 576,
+      "tick_end": 768,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 59,
+      "name": "B3",
+      "tick_start": 768,
+      "tick_end": 960,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 1056,
+      "tick_end": 1248,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 66,
+      "name": "F#4",
+      "tick_start": 1248,
+      "tick_end": 1440,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 1440,
+      "tick_end": 1632,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 64,
+      "name": "E4",
+      "tick_start": 1632,
+      "tick_end": 1824,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 1824,
+      "tick_end": 2016,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 2016,
+      "tick_end": 2112,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 61,
+      "name": "C#4",
+      "tick_start": 2112,
+      "tick_end": 2208,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 2208,
+      "tick_end": 2304,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 59,
+      "name": "B3",
+      "tick_start": 2304,
+      "tick_end": 2400,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 55,
+      "name": "G3",
+      "tick_start": 2400,
+      "tick_end": 2496,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 2496,
+      "tick_end": 2592,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 2592,
+      "tick_end": 2688,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 2688,
+      "tick_end": 2880,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 2880,
+      "tick_end": 3072,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 3072,
+      "tick_end": 3264,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 3264,
+      "tick_end": 3456,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 3456,
+      "tick_end": 3504,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 3504,
+      "tick_end": 3552,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 3552,
+      "tick_end": 3600,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 3600,
+      "tick_end": 3648,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 3648,
+      "tick_end": 3696,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 3696,
+      "tick_end": 3744,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 3744,
+      "tick_end": 3792,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 3792,
+      "tick_end": 3840,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 3840,
+      "tick_end": 3888,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 3888,
+      "tick_end": 3936,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 69,
+      "name": "A4",
+      "tick_start": 3936,
+      "tick_end": 3984,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 3984,
+      "tick_end": 4032,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 4032,
+      "tick_end": 4080,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 4080,
+      "tick_end": 4128,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 4128,
+      "tick_end": 4176,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 4176,
+      "tick_end": 4224,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 4224,
+      "tick_end": 4272,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 4272,
+      "tick_end": 4320,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 4320,
+      "tick_end": 4368,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 4368,
+      "tick_end": 4416,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 4416,
+      "tick_end": 4464,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 4464,
+      "tick_end": 4512,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 4512,
+      "tick_end": 4560,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 4560,
+      "tick_end": 4608,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 4608,
+      "tick_end": 4656,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 4656,
+      "tick_end": 4704,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 4704,
+      "tick_end": 4752,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 4752,
+      "tick_end": 4800,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 70,
+      "name": "Bb4",
+      "tick_start": 4800,
+      "tick_end": 4848,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 4848,
+      "tick_end": 4896,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 4896,
+      "tick_end": 4944,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 4944,
+      "tick_end": 4992,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 4992,
+      "tick_end": 5040,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 5040,
+      "tick_end": 5088,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 70,
+      "name": "Bb4",
+      "tick_start": 5088,
+      "tick_end": 5136,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 5136,
+      "tick_end": 5184,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 73,
+      "name": "C#5",
+      "tick_start": 5184,
+      "tick_end": 5232,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 70,
+      "name": "Bb4",
+      "tick_start": 5232,
+      "tick_end": 5280,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 5280,
+      "tick_end": 5328,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 5328,
+      "tick_end": 5376,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 69,
+      "name": "A4",
+      "tick_start": 5376,
+      "tick_end": 5424,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 5424,
+      "tick_end": 5472,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 5472,
+      "tick_end": 5520,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 5520,
+      "tick_end": 5568,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 75,
+      "name": "Eb5",
+      "tick_start": 5568,
+      "tick_end": 5616,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 5616,
+      "tick_end": 5664,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 5664,
+      "tick_end": 5712,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 69,
+      "name": "A4",
+      "tick_start": 5712,
+      "tick_end": 5760,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 5760,
+      "tick_end": 5808,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 5808,
+      "tick_end": 5856,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 5856,
+      "tick_end": 5904,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 75,
+      "name": "Eb5",
+      "tick_start": 5904,
+      "tick_end": 5952,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 77,
+      "name": "F5",
+      "tick_start": 5952,
+      "tick_end": 6000,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 6000,
+      "tick_end": 6048,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 6048,
+      "tick_end": 6096,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 6096,
+      "tick_end": 6144,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 6144,
+      "tick_end": 6192,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 6192,
+      "tick_end": 6240,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 75,
+      "name": "Eb5",
+      "tick_start": 6240,
+      "tick_end": 6288,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 77,
+      "name": "F5",
+      "tick_start": 6288,
+      "tick_end": 6336,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 75,
+      "name": "Eb5",
+      "tick_start": 6336,
+      "tick_end": 6384,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 6384,
+      "tick_end": 6432,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 6432,
+      "tick_end": 6480,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 6480,
+      "tick_end": 6528,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 6528,
+      "tick_end": 6624,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 6624,
+      "tick_end": 6720,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 6720,
+      "tick_end": 6816,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 6816,
+      "tick_end": 6912,
+      "duration_beats": 1.0
+    }
+  ],
+  "voice_2": [
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 0,
+      "tick_end": 96,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 96,
+      "tick_end": 192,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 192,
+      "tick_end": 288,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 288,
+      "tick_end": 384,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 384,
+      "tick_end": 432,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 432,
+      "tick_end": 480,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 480,
+      "tick_end": 528,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 75,
+      "name": "Eb5",
+      "tick_start": 528,
+      "tick_end": 576,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 77,
+      "name": "F5",
+      "tick_start": 576,
+      "tick_end": 624,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 75,
+      "name": "Eb5",
+      "tick_start": 624,
+      "tick_end": 672,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 672,
+      "tick_end": 720,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 720,
+      "tick_end": 768,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 768,
+      "tick_end": 816,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 816,
+      "tick_end": 864,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 864,
+      "tick_end": 912,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 77,
+      "name": "F5",
+      "tick_start": 912,
+      "tick_end": 960,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 75,
+      "name": "Eb5",
+      "tick_start": 960,
+      "tick_end": 1008,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 1008,
+      "tick_end": 1056,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 1056,
+      "tick_end": 1104,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 1104,
+      "tick_end": 1152,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 69,
+      "name": "A4",
+      "tick_start": 1152,
+      "tick_end": 1200,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 1200,
+      "tick_end": 1248,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 1248,
+      "tick_end": 1296,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 75,
+      "name": "Eb5",
+      "tick_start": 1296,
+      "tick_end": 1344,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 74,
+      "name": "D5",
+      "tick_start": 1344,
+      "tick_end": 1392,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 1392,
+      "tick_end": 1440,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 1440,
+      "tick_end": 1488,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 69,
+      "name": "A4",
+      "tick_start": 1488,
+      "tick_end": 1536,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 1536,
+      "tick_end": 1584,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 1584,
+      "tick_end": 1632,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 70,
+      "name": "Bb4",
+      "tick_start": 1632,
+      "tick_end": 1680,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 73,
+      "name": "C#5",
+      "tick_start": 1680,
+      "tick_end": 1728,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 1728,
+      "tick_end": 1776,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 70,
+      "name": "Bb4",
+      "tick_start": 1776,
+      "tick_end": 1824,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 1824,
+      "tick_end": 1872,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 1872,
+      "tick_end": 1920,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 1920,
+      "tick_end": 1968,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 1968,
+      "tick_end": 2016,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 2016,
+      "tick_end": 2064,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 70,
+      "name": "Bb4",
+      "tick_start": 2064,
+      "tick_end": 2112,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 2112,
+      "tick_end": 2160,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 2160,
+      "tick_end": 2208,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 2208,
+      "tick_end": 2256,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 2256,
+      "tick_end": 2304,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 2304,
+      "tick_end": 2352,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 2352,
+      "tick_end": 2400,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 2400,
+      "tick_end": 2448,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 2448,
+      "tick_end": 2496,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 2496,
+      "tick_end": 2544,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 2544,
+      "tick_end": 2592,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 2592,
+      "tick_end": 2640,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 2640,
+      "tick_end": 2688,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 2688,
+      "tick_end": 2736,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 2736,
+      "tick_end": 2784,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 2784,
+      "tick_end": 2832,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 2832,
+      "tick_end": 2880,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 71,
+      "name": "B4",
+      "tick_start": 2880,
+      "tick_end": 2928,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 69,
+      "name": "A4",
+      "tick_start": 2928,
+      "tick_end": 2976,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 2976,
+      "tick_end": 3024,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 3024,
+      "tick_end": 3072,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 3072,
+      "tick_end": 3120,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 3120,
+      "tick_end": 3168,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 3168,
+      "tick_end": 3216,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 3216,
+      "tick_end": 3264,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 72,
+      "name": "C5",
+      "tick_start": 3264,
+      "tick_end": 3312,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 3312,
+      "tick_end": 3360,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 3360,
+      "tick_end": 3408,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 3408,
+      "tick_end": 3456,
+      "duration_beats": 0.5
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 3456,
+      "tick_end": 3648,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 3648,
+      "tick_end": 3840,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 3840,
+      "tick_end": 4032,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 4032,
+      "tick_end": 4224,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 4224,
+      "tick_end": 4320,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 4320,
+      "tick_end": 4416,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 55,
+      "name": "G3",
+      "tick_start": 4416,
+      "tick_end": 4512,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 59,
+      "name": "B3",
+      "tick_start": 4512,
+      "tick_end": 4608,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 4608,
+      "tick_end": 4704,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 61,
+      "name": "C#4",
+      "tick_start": 4704,
+      "tick_end": 4800,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 62,
+      "name": "D4",
+      "tick_start": 4800,
+      "tick_end": 4896,
+      "duration_beats": 1.0
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 4896,
+      "tick_end": 5088,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 64,
+      "name": "E4",
+      "tick_start": 5088,
+      "tick_end": 5280,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 65,
+      "name": "F4",
+      "tick_start": 5280,
+      "tick_end": 5472,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 66,
+      "name": "F#4",
+      "tick_start": 5472,
+      "tick_end": 5664,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 5664,
+      "tick_end": 5856,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 59,
+      "name": "B3",
+      "tick_start": 5952,
+      "tick_end": 6144,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 68,
+      "name": "Ab4",
+      "tick_start": 6144,
+      "tick_end": 6336,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 67,
+      "name": "G4",
+      "tick_start": 6336,
+      "tick_end": 6528,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 63,
+      "name": "Eb4",
+      "tick_start": 6528,
+      "tick_end": 6720,
+      "duration_beats": 2.0
+    },
+    {
+      "midi": 60,
+      "name": "C4",
+      "tick_start": 6720,
+      "tick_end": 6912,
+      "duration_beats": 2.0
+    }
+  ]
+}
