@@ -22,12 +22,16 @@ export async function buildHalfNotationTexture({ layout, meta, notes, measureSta
   const renderer = new Renderer(canvas, Renderer.Backends.CANVAS);
   renderer.resize(CANVAS_WIDTH, canvasHeight);
 
-  // Escala real del buffer, que puede diferir de CANVAS_WIDTH por devicePixelRatio
-  const scale = canvas.width / segmentWidth;
+  // Forzar el tamaño real del buffer a los valores lógicos, anulando
+  // cualquier ajuste automático de devicePixelRatio que haya aplicado VexFlow
+  canvas.width = CANVAS_WIDTH;
+  canvas.height = canvasHeight;
+
+  const scale = CANVAS_WIDTH / segmentWidth;
 
   const ctx2d = canvas.getContext('2d');
   ctx2d.fillStyle = palette.background;
-  ctx2d.fillRect(0, 0, canvas.width, canvas.height);
+  ctx2d.fillRect(0, 0, CANVAS_WIDTH, canvasHeight);
   ctx2d.setTransform(scale, 0, 0, scale, -segmentStartX * scale, verticalOffset * scale);
 
   const uvMap = new Map();
