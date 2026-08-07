@@ -335,6 +335,9 @@ const chase2 = createChaseCamera({
   radius: getActiveRadius, width, aspect: chaseVoice2Container.clientWidth / chaseVoice2Container.clientHeight,
 });
 
+// Gancho de depuración manual (temporal)
+window.__debug = { textureA, textureB, frontMaterial, backMaterial, cylFrontTexture, cylBackTexture, cylFrontMaterial, cylBackMaterial, scene, renderer, camera };
+
 const theta1El = document.querySelector('[data-field="theta-1"]');
 const twist1El = document.querySelector('[data-field="twist-1"]');
 const uv1El = document.querySelector('[data-field="uv-1"]');
