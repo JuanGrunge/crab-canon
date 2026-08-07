@@ -17,6 +17,9 @@ import { computeLayout } from './shared/layout.js';
 
 const width = 2.76;
 
+// Techo de pixel ratio para limitar el costo de render en hardware mobile
+const cappedPixelRatio = Math.min(window.devicePixelRatio, 1.5);
+
 const moebiusResponse = await fetch(DATA_URL);
 const moebiusData = await moebiusResponse.json();
 
@@ -169,7 +172,7 @@ const camera = new THREE.PerspectiveCamera(FOV_DEG, moebiusApp.clientWidth / moe
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(moebiusApp.clientWidth, moebiusApp.clientHeight);
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(cappedPixelRatio);
 moebiusApp.appendChild(renderer.domElement);
 
 const controls = new TrackballControls(camera, renderer.domElement);
@@ -375,7 +378,7 @@ function updateCentralMeasureCounter() {
 function createChaseRenderPipeline(container, chaseCamera) {
   const chaseRenderer = new THREE.WebGLRenderer({ antialias: true });
   chaseRenderer.setSize(container.clientWidth, container.clientHeight);
-  chaseRenderer.setPixelRatio(window.devicePixelRatio);
+  chaseRenderer.setPixelRatio(cappedPixelRatio);
   container.appendChild(chaseRenderer.domElement);
 
   function resizeRenderer(width, height) {
@@ -395,8 +398,8 @@ const chase2Pipeline = createChaseRenderPipeline(chaseVoice2Container, chase2.ca
 // Corrección de tamaño de render, patrón canónico Three.js
 function resizeRendererToDisplaySize(targetRenderer, targetCamera, width, height) {
   if (width === 0 || height === 0) return false;
-  const needsResize = targetRenderer.domElement.width !== width * window.devicePixelRatio
-    || targetRenderer.domElement.height !== height * window.devicePixelRatio;
+  const needsResize = targetRenderer.domElement.width !== width * cappedPixelRatio
+    || targetRenderer.domElement.height !== height * cappedPixelRatio;
   if (needsResize) {
     targetRenderer.setSize(width, height, true);
     targetCamera.aspect = width / height;
