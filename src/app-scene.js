@@ -72,10 +72,10 @@ const textureAAspect = textureA.image.width / textureA.image.height;
 const textureBAspect = textureB.image.width / textureB.image.height;
 
 const frontMaterial = createGlowMaterial({
-  map: textureA, side: THREE.FrontSide, aspect: textureAAspect, sharedUniforms: frontGlowUniforms,
+  map: textureA, side: THREE.FrontSide, aspect: textureAAspect, sharedUniforms: frontGlowUniforms, polygonOffsetFactor: 4,
 });
 const backMaterial = createGlowMaterial({
-  map: textureB, side: THREE.BackSide, aspect: textureBAspect, sharedUniforms: backGlowUniforms,
+  map: textureB, side: THREE.BackSide, aspect: textureBAspect, sharedUniforms: backGlowUniforms, polygonOffsetFactor: -4,
 });
 
 const BLOOM_LAYER = 1;
@@ -137,10 +137,10 @@ const cylFrontTextureAspect = cylFrontTexture.image.width / cylFrontTexture.imag
 const cylBackTextureAspect = cylBackTexture.image.width / cylBackTexture.image.height;
 
 const cylFrontMaterial = createGlowMaterial({
-  map: cylFrontTexture, side: THREE.FrontSide, aspect: cylFrontTextureAspect, sharedUniforms: cylFrontGlowUniforms, polygonOffsetFactor: 1,
+  map: cylFrontTexture, side: THREE.FrontSide, aspect: cylFrontTextureAspect, sharedUniforms: cylFrontGlowUniforms, polygonOffsetFactor: 4,
 });
 const cylBackMaterial = createGlowMaterial({
-  map: cylBackTexture, side: THREE.BackSide, aspect: cylBackTextureAspect, sharedUniforms: cylBackGlowUniforms, polygonOffsetFactor: -1,
+  map: cylBackTexture, side: THREE.BackSide, aspect: cylBackTextureAspect, sharedUniforms: cylBackGlowUniforms, polygonOffsetFactor: -4,
 });
 
 const cylFrontHalo = createGlowHalo({ radius: cylRadius, width, color: GLOW.colorByVoice.voice_1, fixedTwist: CYLINDER_FIXED_TWIST });
