@@ -396,12 +396,12 @@ function applyMirror(canvasEl, side) {
   canvasEl.style.transform = side < 0 ? 'scaleX(-1)' : 'none';
 }
 
-let lastMoebiusW = moebiusApp.clientWidth;
-let lastMoebiusH = moebiusApp.clientHeight;
-let lastChase1W = chaseVoice1Container.clientWidth;
-let lastChase1H = chaseVoice1Container.clientHeight;
-let lastChase2W = chaseVoice2Container.clientWidth;
-let lastChase2H = chaseVoice2Container.clientHeight;
+let lastMoebiusW = -1;
+let lastMoebiusH = -1;
+let lastChase1W = -1;
+let lastChase1H = -1;
+let lastChase2W = -1;
+let lastChase2H = -1;
 
 let frameCount = 0;
 
