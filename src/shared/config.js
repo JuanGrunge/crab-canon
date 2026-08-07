@@ -71,10 +71,12 @@ export const AUDIO = {
     attack: 0.005,
     decay: 0.12,
     sustain: 0.05,
-    release: 1.3,
+    release: 0.7,
   },
   volumeDb: {
     voice_1: -8,
     voice_2: -8,
   },
+  maxPolyphony: 8,
+  limiterThresholdDb: -1,
 };

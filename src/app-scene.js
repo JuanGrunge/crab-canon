@@ -189,6 +189,7 @@ controls.noPan = false;
 controls.minDistance = 0.1;
 controls.maxDistance = 1000;
 controls.enabled = false;
+renderer.domElement.style.touchAction = 'pan-y';
 
 const AUTO_ROTATE_SPEED = 0.0015;
 let autoRotating = false;
@@ -202,6 +203,7 @@ const lockControlsBtn = document.getElementById('lock-controls-btn');
 const lockLabelEl = document.querySelector('[data-field="lock-label"]');
 lockControlsBtn.addEventListener('click', () => {
   controls.enabled = !controls.enabled;
+  renderer.domElement.style.touchAction = controls.enabled ? 'none' : 'pan-y';
   lockControlsBtn.classList.toggle('active', controls.enabled);
   lockLabelEl.textContent = controls.enabled ? 'Libre' : 'Bloqueado';
 });

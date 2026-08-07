@@ -2,13 +2,17 @@ import * as Tone from 'https://cdn.jsdelivr.net/npm/tone@14.8.49/+esm';
 import { AUDIO } from './shared/config.js';
 
 export function createAudioEngine({ transport, voiceIds }) {
+  // Bus maestro: evita que la suma de voces sonando a la vez distorsione
+  const masterLimiter = new Tone.Limiter(AUDIO.limiterThresholdDb).toDestination();
+
   const synths = {};
 
   voiceIds.forEach((voiceId) => {
     const synth = new Tone.PolySynth(Tone.Synth, {
+      maxPolyphony: AUDIO.maxPolyphony,
       oscillator: { type: AUDIO.oscillatorTypeByVoice[voiceId] ?? AUDIO.oscillatorType },
       envelope: AUDIO.envelope,
-    }).toDestination();
+    }).connect(masterLimiter);
     synth.volume.value = AUDIO.volumeDb[voiceId] ?? -8;
     synths[voiceId] = synth;
   });
