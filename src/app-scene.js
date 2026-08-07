@@ -415,8 +415,11 @@ function applyMirror(canvasEl, side) {
   canvasEl.style.transform = side < 0 ? 'scaleX(-1)' : 'none';
 }
 
+let frameCount = 0;
+
 function animate() {
   requestAnimationFrame(animate);
+  frameCount++;
 
   // Fase de lectura: todas las medidas del DOM juntas, sin escrituras intercaladas
   const moebiusW = moebiusApp.clientWidth, moebiusH = moebiusApp.clientHeight;
@@ -443,8 +446,10 @@ function animate() {
   bloomComposer.render();
   scene.traverse(restoreMaterial);
   finalComposer.render();
-  chase1Pipeline.render();
-  chase2Pipeline.render();
+  if (frameCount % 2 === 0) {
+    chase1Pipeline.render();
+    chase2Pipeline.render();
+  }
   applyMirror(chase1Canvas, chase1.getSide());
   applyMirror(chase2Canvas, chase2.getSide());
   updateMathReadout(chase1, theta1El, twist1El, uv1El);
