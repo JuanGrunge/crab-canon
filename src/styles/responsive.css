@@ -1,0 +1,41 @@
+@media (max-width: 900px) {
+  html, body {
+    height: auto;
+    overflow: visible;
+  }
+  body {
+    display: block;
+  }
+  .moebius-row {
+    flex-direction: column;
+    height: auto;
+  }
+  .moebius-row > div {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    height: auto;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--void);
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .title-row {
+    order: -1;
+    width: 100%;
+  }
+  .info-modal-card {
+    max-height: min(88vh, 720px);
+    max-height: min(88dvh, 720px);
+  }
+  .info-modal-tabs {
+    padding: 14px 40px 0 14px;
+  }
+  .info-modal-panels {
+    padding: 16px 16px 20px;
+  }
+}

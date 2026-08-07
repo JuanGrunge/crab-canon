@@ -1,0 +1,30 @@
+.strips {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  gap: 10px;
+  padding: 0 24px 10px;
+}
+
+.strip {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.strip-viewport {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+
+.strip-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  will-change: transform;
+}
+
+.strip-track svg {
+  display: block;
+}
