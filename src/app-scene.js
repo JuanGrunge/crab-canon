@@ -10,7 +10,7 @@ import { buildHalfNotationTexture } from './moebius/notation-texture.js';
 import { createGlowMaterial } from './moebius/glow-material.js';
 import { createGlowHalo } from './moebius/glow-halo.js';
 import { createMoebiusGlow } from './moebius/moebius-glow.js';
-import { createChaseCamera } from './moebius/chase-camera.js';
+import { createChaseCamera, computeVerticalFov, TARGET_HORIZONTAL_FOV } from './moebius/chase-camera.js';
 import { transportReady } from './shared/app-transport.js';
 import { DATA_URL, MOEBIUS_PX_TO_WORLD_SCALE, GLOW } from './shared/config.js';
 import { computeLayout } from './shared/layout.js';
@@ -374,6 +374,7 @@ function createChaseRenderPipeline(container, chaseCamera) {
 
   function resize() {
     chaseCamera.aspect = container.clientWidth / container.clientHeight;
+    chaseCamera.fov = computeVerticalFov(TARGET_HORIZONTAL_FOV, chaseCamera.aspect);
     chaseCamera.updateProjectionMatrix();
     chaseRenderer.setSize(container.clientWidth, container.clientHeight);
   }

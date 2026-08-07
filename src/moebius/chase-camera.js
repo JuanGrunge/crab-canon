@@ -4,10 +4,18 @@ import { pointOnMoebius, normalOnMoebius, ribbonFrame } from './geometry.js';
 const STANDOFF_FACTOR = 1.6;
 const LOOKAHEAD = 0.006;
 const EASE_FACTOR = 0.08;
+export const TARGET_HORIZONTAL_FOV = 40;
+
+// FOV vertical equivalente a un FOV horizontal fijo, para cualquier aspect ratio
+export function computeVerticalFov(targetHorizontalFovDeg, aspect) {
+  const hFovRad = (targetHorizontalFovDeg * Math.PI) / 180;
+  const vFovRad = 2 * Math.atan(Math.tan(hFovRad / 2) / aspect);
+  return (vFovRad * 180) / Math.PI;
+}
 
 // Cámara que sigue el glow activo de una voz
 export function createChaseCamera({ transport, targets, radius, width, aspect, getTwistParams = () => ({ twistTurns: 0.5 }) }) {
-  const camera = new THREE.PerspectiveCamera(50, aspect, 0.01, 100);
+  const camera = new THREE.PerspectiveCamera(computeVerticalFov(TARGET_HORIZONTAL_FOV, aspect), aspect, 0.01, 100);
   const standoff = width * STANDOFF_FACTOR;
 
   function resolveRadius() {
