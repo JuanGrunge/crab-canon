@@ -378,38 +378,15 @@ function createChaseRenderPipeline(container, chaseCamera) {
   chaseRenderer.setPixelRatio(window.devicePixelRatio);
   container.appendChild(chaseRenderer.domElement);
 
-  const chaseBloomComposer = new EffectComposer(chaseRenderer);
-  chaseBloomComposer.renderToScreen = false;
-  chaseBloomComposer.addPass(new RenderPass(scene, chaseCamera));
-  chaseBloomComposer.addPass(new UnrealBloomPass(new THREE.Vector2(container.clientWidth, container.clientHeight), BLOOM_STRENGTH, BLOOM_RADIUS, BLOOM_THRESHOLD));
-
-  const chaseMixPass = new ShaderPass(
-    new THREE.ShaderMaterial({
-      uniforms: { baseTexture: { value: null }, bloomTexture: { value: chaseBloomComposer.renderTarget2.texture } },
-      vertexShader: `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
-      fragmentShader: `uniform sampler2D baseTexture; uniform sampler2D bloomTexture; varying vec2 vUv; void main() { gl_FragColor = ( texture2D( baseTexture, vUv ) + vec4( 1.0 ) * texture2D( bloomTexture, vUv ) ); }`,
-    }),
-    'baseTexture',
-  );
-
-  const chaseFinalComposer = new EffectComposer(chaseRenderer);
-  chaseFinalComposer.addPass(new RenderPass(scene, chaseCamera));
-  chaseFinalComposer.addPass(chaseMixPass);
-  chaseFinalComposer.addPass(new OutputPass());
-
-  function resizeComposers() {
-    chaseBloomComposer.setSize(container.clientWidth, container.clientHeight);
-    chaseFinalComposer.setSize(container.clientWidth, container.clientHeight);
+  function resizeRenderer(width, height) {
+    chaseRenderer.setSize(width, height);
   }
 
   function render() {
-    scene.traverse(darkenNonBloomed);
-    chaseBloomComposer.render();
-    scene.traverse(restoreMaterial);
-    chaseFinalComposer.render();
+    chaseRenderer.render(scene, chaseCamera);
   }
 
-  return { renderer: chaseRenderer, resizeComposers, render };
+  return { renderer: chaseRenderer, resizeRenderer, render };
 }
 
 const chase1Pipeline = createChaseRenderPipeline(chaseVoice1Container, chase1.camera);
@@ -448,10 +425,10 @@ function animate() {
   if (moebiusResized) fitCameraToViewport();
 
   const chase1Resized = resizeRendererToDisplaySize(chase1Pipeline.renderer, chase1.camera, chase1W, chase1H);
-  if (chase1Resized) chase1Pipeline.resizeComposers();
+  if (chase1Resized) chase1Pipeline.resizeRenderer(chase1W, chase1H);
 
   const chase2Resized = resizeRendererToDisplaySize(chase2Pipeline.renderer, chase2.camera, chase2W, chase2H);
-  if (chase2Resized) chase2Pipeline.resizeComposers();
+  if (chase2Resized) chase2Pipeline.resizeRenderer(chase2W, chase2H);
 
   if (autoRotating) {
     const offset = camera.position.clone().sub(controls.target);
