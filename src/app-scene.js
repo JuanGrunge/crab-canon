@@ -92,7 +92,8 @@ const voice2HaloB = createGlowHalo({ radius, width, color: GLOW.colorByVoice.voi
 voice2HaloA.sprite.layers.enable(BLOOM_LAYER);
 voice2HaloB.sprite.layers.enable(BLOOM_LAYER);
 
-transportReady.then((transport) => {
+async function initMoebiusGlow() {
+  const transport = await transportReady;
   // Glow independiente por mitad de la cinta
   createMoebiusGlow({ transport, uvMap: uvMapA, sharedUniforms: frontGlowUniforms, voiceId: 'voice_1', halo: frontHalo, side: 1 });
   createMoebiusGlow({ transport, uvMap: uvMapB, sharedUniforms: backGlowUniforms, voiceId: 'voice_1', halo: backHalo, side: -1 });
@@ -105,7 +106,8 @@ transportReady.then((transport) => {
     transport, uvMap: uvMapB, sharedUniforms: voice2GlowUniformsB, voiceId: 'voice_2', halo: voice2HaloB, side: -1,
     resolveUv: (note) => uvMapB.get(moebiusData.meta.total_ticks - note.tick_end),
   });
-});
+}
+const moebiusGlowReady = initMoebiusGlow();
 
 // Modo Cilindro: variante sin torsión de la cinta
 const CYLINDER_FIXED_TWIST = Math.PI / 2;
@@ -146,10 +148,12 @@ const cylBackHalo = createGlowHalo({ radius: cylRadius, width, color: GLOW.color
 cylFrontHalo.sprite.layers.enable(BLOOM_LAYER);
 cylBackHalo.sprite.layers.enable(BLOOM_LAYER);
 
-transportReady.then((transport) => {
+async function initCylinderGlow() {
+  const transport = await transportReady;
   createMoebiusGlow({ transport, uvMap: cylFrontUvMap, sharedUniforms: cylFrontGlowUniforms, voiceId: 'voice_1', halo: cylFrontHalo, side: 1 });
   createMoebiusGlow({ transport, uvMap: cylBackUvMap, sharedUniforms: cylBackGlowUniforms, voiceId: 'voice_2', halo: cylBackHalo, side: -1 });
-});
+}
+const cylinderGlowReady = initCylinderGlow();
 
 const cylFrontMesh = new THREE.Mesh(cylGeometry, cylFrontMaterial);
 const cylBackMesh = new THREE.Mesh(cylGeometry, cylBackMaterial);
@@ -306,6 +310,7 @@ const chaseVoice1Container = document.getElementById('moebius-chase-voice1');
 const chaseVoice2Container = document.getElementById('moebius-chase-voice2');
 
 const transport = await transportReady;
+await Promise.all([moebiusGlowReady, cylinderGlowReady]);
 
 // Targets de cámara según el modo activo (Moebius/Cilindro)
 const chase1Targets = () => (activeMode === 'mobius'
