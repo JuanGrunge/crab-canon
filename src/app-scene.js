@@ -175,8 +175,8 @@ const FOV_DEG = 50;
 const camera = new THREE.PerspectiveCamera(FOV_DEG, moebiusApp.clientWidth / moebiusApp.clientHeight, 0.1, 100);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(moebiusApp.clientWidth, moebiusApp.clientHeight);
 renderer.setPixelRatio(cappedPixelRatio);
+renderer.setSize(moebiusApp.clientWidth, moebiusApp.clientHeight);
 moebiusApp.appendChild(renderer.domElement);
 
 const controls = new TrackballControls(camera, renderer.domElement);
@@ -373,8 +373,8 @@ function updateCentralMeasureCounter() {
 
 function createChaseRenderPipeline(container, chaseCamera) {
   const chaseRenderer = new THREE.WebGLRenderer({ antialias: true });
-  chaseRenderer.setSize(container.clientWidth, container.clientHeight);
   chaseRenderer.setPixelRatio(cappedPixelRatio);
+  chaseRenderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(chaseRenderer.domElement);
 
   function resize() {
