@@ -15,16 +15,19 @@ export async function buildHalfNotationTexture({ layout, meta, notes, measureSta
     .slice(measureStart, measureEnd)
     .reduce((a, b) => a + b, 0);
 
-  const scale = CANVAS_WIDTH / segmentWidth;
-  const canvasHeight = Math.round(STRIP_HEIGHT * scale);
+  const targetScale = CANVAS_WIDTH / segmentWidth;
+  const canvasHeight = Math.round(STRIP_HEIGHT * targetScale);
 
   const canvas = document.createElement('canvas');
   const renderer = new Renderer(canvas, Renderer.Backends.CANVAS);
   renderer.resize(CANVAS_WIDTH, canvasHeight);
 
+  // Escala real del buffer, que puede diferir de CANVAS_WIDTH por devicePixelRatio
+  const scale = canvas.width / segmentWidth;
+
   const ctx2d = canvas.getContext('2d');
   ctx2d.fillStyle = palette.background;
-  ctx2d.fillRect(0, 0, CANVAS_WIDTH, canvasHeight);
+  ctx2d.fillRect(0, 0, canvas.width, canvas.height);
   ctx2d.setTransform(scale, 0, 0, scale, -segmentStartX * scale, verticalOffset * scale);
 
   const uvMap = new Map();
