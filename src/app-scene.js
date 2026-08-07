@@ -300,16 +300,7 @@ function fitCameraToViewport() {
   finalComposer.setSize(moebiusApp.clientWidth, moebiusApp.clientHeight);
 }
 
-// Punto de sincronización para el encuadre inicial de cámara
-function whenLayoutSettled(callback) {
-  requestAnimationFrame(() => {
-    requestAnimationFrame(callback);
-  });
-}
-
-whenLayoutSettled(() => {
-  fitCameraToViewport();
-});
+fitCameraToViewport();
 
 const chaseVoice1Container = document.getElementById('moebius-chase-voice1');
 const chaseVoice2Container = document.getElementById('moebius-chase-voice2');
@@ -381,32 +372,21 @@ function createChaseRenderPipeline(container, chaseCamera) {
   chaseRenderer.setPixelRatio(cappedPixelRatio);
   container.appendChild(chaseRenderer.domElement);
 
-  function resizeRenderer(width, height) {
-    chaseRenderer.setSize(width, height);
+  function resize() {
+    chaseCamera.aspect = container.clientWidth / container.clientHeight;
+    chaseCamera.updateProjectionMatrix();
+    chaseRenderer.setSize(container.clientWidth, container.clientHeight);
   }
 
   function render() {
     chaseRenderer.render(scene, chaseCamera);
   }
 
-  return { renderer: chaseRenderer, resizeRenderer, render };
+  return { renderer: chaseRenderer, resize, render };
 }
 
 const chase1Pipeline = createChaseRenderPipeline(chaseVoice1Container, chase1.camera);
 const chase2Pipeline = createChaseRenderPipeline(chaseVoice2Container, chase2.camera);
-
-// Corrección de tamaño de render, patrón canónico Three.js
-function resizeRendererToDisplaySize(targetRenderer, targetCamera, width, height) {
-  if (width === 0 || height === 0) return false;
-  const needsResize = targetRenderer.domElement.width !== width * cappedPixelRatio
-    || targetRenderer.domElement.height !== height * cappedPixelRatio;
-  if (needsResize) {
-    targetRenderer.setSize(width, height, true);
-    targetCamera.aspect = width / height;
-    targetCamera.updateProjectionMatrix();
-  }
-  return needsResize;
-}
 
 const chase1Canvas = chaseVoice1Container.querySelector('canvas');
 const chase2Canvas = chaseVoice2Container.querySelector('canvas');
@@ -415,26 +395,34 @@ function applyMirror(canvasEl, side) {
   canvasEl.style.transform = side < 0 ? 'scaleX(-1)' : 'none';
 }
 
+let lastMoebiusW = moebiusApp.clientWidth;
+let lastMoebiusH = moebiusApp.clientHeight;
+let lastChase1W = chaseVoice1Container.clientWidth;
+let lastChase1H = chaseVoice1Container.clientHeight;
+let lastChase2W = chaseVoice2Container.clientWidth;
+let lastChase2H = chaseVoice2Container.clientHeight;
+
 let frameCount = 0;
 
 function animate() {
   requestAnimationFrame(animate);
   frameCount++;
 
-  // Fase de lectura: todas las medidas del DOM juntas, sin escrituras intercaladas
-  const moebiusW = moebiusApp.clientWidth, moebiusH = moebiusApp.clientHeight;
-  const chase1W = chaseVoice1Container.clientWidth, chase1H = chaseVoice1Container.clientHeight;
-  const chase2W = chaseVoice2Container.clientWidth, chase2H = chaseVoice2Container.clientHeight;
-
-  // Fase de escritura: recién ahora se aplican los cambios
-  const moebiusResized = resizeRendererToDisplaySize(renderer, camera, moebiusW, moebiusH);
-  if (moebiusResized) fitCameraToViewport();
-
-  const chase1Resized = resizeRendererToDisplaySize(chase1Pipeline.renderer, chase1.camera, chase1W, chase1H);
-  if (chase1Resized) chase1Pipeline.resizeRenderer(chase1W, chase1H);
-
-  const chase2Resized = resizeRendererToDisplaySize(chase2Pipeline.renderer, chase2.camera, chase2W, chase2H);
-  if (chase2Resized) chase2Pipeline.resizeRenderer(chase2W, chase2H);
+  if (moebiusApp.clientWidth !== lastMoebiusW || moebiusApp.clientHeight !== lastMoebiusH) {
+    lastMoebiusW = moebiusApp.clientWidth;
+    lastMoebiusH = moebiusApp.clientHeight;
+    fitCameraToViewport();
+  }
+  if (chaseVoice1Container.clientWidth !== lastChase1W || chaseVoice1Container.clientHeight !== lastChase1H) {
+    lastChase1W = chaseVoice1Container.clientWidth;
+    lastChase1H = chaseVoice1Container.clientHeight;
+    chase1Pipeline.resize();
+  }
+  if (chaseVoice2Container.clientWidth !== lastChase2W || chaseVoice2Container.clientHeight !== lastChase2H) {
+    lastChase2W = chaseVoice2Container.clientWidth;
+    lastChase2H = chaseVoice2Container.clientHeight;
+    chase2Pipeline.resize();
+  }
 
   if (autoRotating) {
     const offset = camera.position.clone().sub(controls.target);
