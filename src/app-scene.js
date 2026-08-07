@@ -171,6 +171,7 @@ const scene = new THREE.Scene();
 modeObjects[activeMode].forEach((obj) => scene.add(obj));
 
 const moebiusApp = document.getElementById('moebius-app');
+const canvasResEl = document.querySelector('[data-field="canvas-res"]');
 const FOV_DEG = 50;
 const camera = new THREE.PerspectiveCamera(FOV_DEG, moebiusApp.clientWidth / moebiusApp.clientHeight, 0.1, 100);
 
@@ -187,6 +188,7 @@ controls.noZoom = false;
 controls.noPan = false;
 controls.minDistance = 0.1;
 controls.maxDistance = 1000;
+controls.enabled = false;
 
 const AUTO_ROTATE_SPEED = 0.0015;
 let autoRotating = false;
@@ -194,6 +196,14 @@ const autoRotateBtn = document.getElementById('auto-rotate-btn');
 autoRotateBtn.addEventListener('click', () => {
   autoRotating = !autoRotating;
   autoRotateBtn.classList.toggle('active', autoRotating);
+});
+
+const lockControlsBtn = document.getElementById('lock-controls-btn');
+const lockLabelEl = document.querySelector('[data-field="lock-label"]');
+lockControlsBtn.addEventListener('click', () => {
+  controls.enabled = !controls.enabled;
+  lockControlsBtn.classList.toggle('active', controls.enabled);
+  lockLabelEl.textContent = controls.enabled ? 'Libre' : 'Bloqueado';
 });
 
 const modeToggleBtn = document.getElementById('mode-toggle-btn');
@@ -299,6 +309,7 @@ function fitCameraToViewport() {
   camera.updateMatrixWorld(true);
 
   renderer.setSize(moebiusApp.clientWidth, moebiusApp.clientHeight);
+  canvasResEl.textContent = `Res ${renderer.domElement.width}×${renderer.domElement.height}`;
   controls.handleResize();
   bloomComposer.setSize(moebiusApp.clientWidth, moebiusApp.clientHeight);
   finalComposer.setSize(moebiusApp.clientWidth, moebiusApp.clientHeight);
@@ -380,11 +391,14 @@ function createChaseRenderPipeline(container, chaseCamera) {
   chaseRenderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(chaseRenderer.domElement);
 
+  const resEl = container.querySelector('[data-field^="res-"]');
+
   function resize() {
     chaseCamera.aspect = container.clientWidth / container.clientHeight;
     chaseCamera.fov = computeVerticalFov(TARGET_HORIZONTAL_FOV, chaseCamera.aspect);
     chaseCamera.updateProjectionMatrix();
     chaseRenderer.setSize(container.clientWidth, container.clientHeight);
+    resEl.textContent = `Res ${chaseRenderer.domElement.width}×${chaseRenderer.domElement.height}`;
   }
 
   function render() {

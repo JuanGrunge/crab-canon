@@ -265,7 +265,14 @@
     z-index: 3;
   }
 
-  #auto-rotate-btn {
+  .moebius-center-controls-left {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 3;
+  }
+
+  .center-control-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -279,10 +286,10 @@
     cursor: pointer;
     transition: border-color 0.15s ease, background 0.15s ease;
   }
-  #auto-rotate-btn:hover {
+  .center-control-btn:hover {
     border-color: var(--brass);
   }
-  #auto-rotate-btn.active {
+  .center-control-btn.active {
     background: var(--brass);
     color: var(--void);
     border-color: var(--brass);
@@ -582,6 +589,7 @@
         <span data-field="theta-1">θ —</span>
         <span data-field="twist-1">torsión —</span>
         <span data-field="uv-1">(u, v) —</span>
+        <span data-field="res-1">Res —</span>
       </div>
     </div>
     <div id="moebius-app">
@@ -592,10 +600,14 @@
           <span data-field="transport-state">Estado —</span>
           <span data-field="transport-tick">Tick —</span>
           <span data-field="transport-bpm">BPM —</span>
+          <span data-field="canvas-res">Res —</span>
         </div>
       </div>
+      <div class="moebius-center-controls-left">
+        <button id="lock-controls-btn" class="center-control-btn" title="Bloquear/desbloquear cámara"><span class="icon">⚿</span> <span data-field="lock-label">Bloqueado</span></button>
+      </div>
       <div class="moebius-center-controls">
-        <button id="auto-rotate-btn" title="Girar automáticamente"><span class="icon">⟳</span> Girar</button>
+        <button id="auto-rotate-btn" class="center-control-btn" title="Girar automáticamente"><span class="icon">⟳</span> Girar</button>
       </div>
     </div>
     <div id="moebius-chase-voice2">
@@ -604,6 +616,7 @@
         <span data-field="theta-2">θ —</span>
         <span data-field="twist-2">torsión —</span>
         <span data-field="uv-2">(u, v) —</span>
+        <span data-field="res-2">Res —</span>
       </div>
     </div>
   </div>
