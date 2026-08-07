@@ -416,9 +416,7 @@ const chase1Pipeline = createChaseRenderPipeline(chaseVoice1Container, chase1.ca
 const chase2Pipeline = createChaseRenderPipeline(chaseVoice2Container, chase2.camera);
 
 // Corrección de tamaño de render, patrón canónico Three.js
-function resizeRendererToDisplaySize(targetRenderer, targetCamera, container) {
-  const width = container.clientWidth;
-  const height = container.clientHeight;
+function resizeRendererToDisplaySize(targetRenderer, targetCamera, width, height) {
   if (width === 0 || height === 0) return false;
   const needsResize = targetRenderer.domElement.width !== width * window.devicePixelRatio
     || targetRenderer.domElement.height !== height * window.devicePixelRatio;
@@ -440,13 +438,19 @@ function applyMirror(canvasEl, side) {
 function animate() {
   requestAnimationFrame(animate);
 
-  const moebiusResized = resizeRendererToDisplaySize(renderer, camera, moebiusApp);
+  // Fase de lectura: todas las medidas del DOM juntas, sin escrituras intercaladas
+  const moebiusW = moebiusApp.clientWidth, moebiusH = moebiusApp.clientHeight;
+  const chase1W = chaseVoice1Container.clientWidth, chase1H = chaseVoice1Container.clientHeight;
+  const chase2W = chaseVoice2Container.clientWidth, chase2H = chaseVoice2Container.clientHeight;
+
+  // Fase de escritura: recién ahora se aplican los cambios
+  const moebiusResized = resizeRendererToDisplaySize(renderer, camera, moebiusW, moebiusH);
   if (moebiusResized) fitCameraToViewport();
 
-  const chase1Resized = resizeRendererToDisplaySize(chase1Pipeline.renderer, chase1.camera, chaseVoice1Container);
+  const chase1Resized = resizeRendererToDisplaySize(chase1Pipeline.renderer, chase1.camera, chase1W, chase1H);
   if (chase1Resized) chase1Pipeline.resizeComposers();
 
-  const chase2Resized = resizeRendererToDisplaySize(chase2Pipeline.renderer, chase2.camera, chaseVoice2Container);
+  const chase2Resized = resizeRendererToDisplaySize(chase2Pipeline.renderer, chase2.camera, chase2W, chase2H);
   if (chase2Resized) chase2Pipeline.resizeComposers();
 
   if (autoRotating) {
