@@ -40,10 +40,10 @@ const halfWidth = uniformMeasureWidth * HALF_COUNT;
 const radius = (halfWidth * MOEBIUS_PX_TO_WORLD_SCALE) / (2 * Math.PI);
 
 const { texture: textureA, uvMap: uvMapA } = await buildHalfNotationTexture({
-  layout: uniformLayout, meta: moebiusData.meta, measureStart: 0, measureEnd: HALF_COUNT, verticalOffset: 0,
+  layout: uniformLayout, meta: moebiusData.meta, notes: moebiusData.voice_1, measureStart: 0, measureEnd: HALF_COUNT, verticalOffset: 0,
 });
 const { texture: textureB, uvMap: uvMapB } = await buildHalfNotationTexture({
-  layout: uniformLayout, meta: moebiusData.meta, measureStart: HALF_COUNT, measureEnd: masterLayout.measureCount, verticalOffset: 10,
+  layout: uniformLayout, meta: moebiusData.meta, notes: moebiusData.voice_1, measureStart: HALF_COUNT, measureEnd: masterLayout.measureCount, verticalOffset: 10,
 });
 
 const { geometry } = buildMoebiusGeometry({ radius, width, segments: 400, crossSegments: 16 });
@@ -115,10 +115,10 @@ const fullWidth = uniformMeasureWidth * masterLayout.measureCount;
 const cylRadius = (fullWidth * MOEBIUS_PX_TO_WORLD_SCALE) / (2 * Math.PI);
 
 const { texture: cylFrontTexture, uvMap: cylFrontUvMap } = await buildHalfNotationTexture({
-  layout: uniformLayout, meta: moebiusData.meta, measureStart: 0, measureEnd: masterLayout.measureCount, voiceId: 'voice_1',
+  layout: uniformLayout, meta: moebiusData.meta, notes: moebiusData.voice_1, measureStart: 0, measureEnd: masterLayout.measureCount, voiceId: 'voice_1',
 });
 const { texture: cylBackTexture, uvMap: cylBackUvMap } = await buildHalfNotationTexture({
-  layout: uniformLayout, meta: moebiusData.meta, measureStart: 0, measureEnd: masterLayout.measureCount, voiceId: 'voice_2',
+  layout: uniformLayout, meta: moebiusData.meta, notes: moebiusData.voice_2, measureStart: 0, measureEnd: masterLayout.measureCount, voiceId: 'voice_2',
 });
 
 const { geometry: cylGeometry } = buildCylinderGeometry({ radius: cylRadius, width, segments: 400, crossSegments: 16 });

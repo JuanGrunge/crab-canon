@@ -1,16 +1,13 @@
 import * as THREE from 'three';
 import { Renderer } from 'https://cdn.jsdelivr.net/npm/vexflow@4.2.3/+esm';
 
-import { DATA_URL, VOICES, STRIP_HEIGHT } from '../shared/config.js';
+import { VOICES, STRIP_HEIGHT } from '../shared/config.js';
 import { renderMeasureRange } from '../shared/notation-renderer.js';
 
 const CANVAS_WIDTH = 4096;
 
 // Textura de notación para una porción de compases de una voz
-export async function buildHalfNotationTexture({ layout, meta, measureStart, measureEnd, verticalOffset = 0, voiceId = 'voice_1' }) {
-  const response = await fetch(DATA_URL);
-  const data = await response.json();
-  const notes = data[voiceId];
+export async function buildHalfNotationTexture({ layout, meta, notes, measureStart, measureEnd, verticalOffset = 0, voiceId = 'voice_1' }) {
   const palette = VOICES[voiceId];
 
   const segmentStartX = layout.measureX[measureStart];
