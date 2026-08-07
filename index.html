@@ -994,7 +994,16 @@
     bloomComposer.setSize(moebiusApp.clientWidth, moebiusApp.clientHeight);
     finalComposer.setSize(moebiusApp.clientWidth, moebiusApp.clientHeight);
   }
-  fitCameraToViewport();
+  // Punto de sincronización para el encuadre inicial de cámara
+  function whenLayoutSettled(callback) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(callback);
+    });
+  }
+
+  whenLayoutSettled(() => {
+    fitCameraToViewport();
+  });
 
   const chaseVoice1Container = document.getElementById('moebius-chase-voice1');
   const chaseVoice2Container = document.getElementById('moebius-chase-voice2');
